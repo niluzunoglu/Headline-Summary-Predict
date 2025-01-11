@@ -60,13 +60,30 @@ def connect_gemini(data, task_type, api_keys):
 
     return results
 
+def generate_header_manuel_way(data):
+  results = []
+
+  for index, row in data.iterrows():
+    print(index)
+    tempObject = {}
+
+    tempObject["text"] = row["text"]
+    tempObject["summary"] = row["baslik"]
+    tempObject["header"] = " ".join(row["text"].split()[:5])
+
+    results.append(tempObject)
+  return results
+
 
 if __name__ == "__main__":
     
-    data_4900 = upload
+    API_KEYS = []
+    data_4900 = upload_data("")
+    
     results = connect_gemini(data_4900, task_type="summary", api_keys=API_KEYS)
-    # Sonuçları bir pandas DataFrame'e dönüştür ve Excel'e kaydet
+    
     df = pd.DataFrame(results)
     output_file = "4900_generated_summaries.xlsx"
+    
     df.to_excel(output_file, index=False)
     print(f"Results saved to {output_file}")
