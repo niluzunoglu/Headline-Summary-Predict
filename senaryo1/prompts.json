@@ -1,0 +1,6 @@
+{
+    "1-ozettenbasliga":"Verilen özet metnine göre anlamlı bir başlık oluştur. İşte özet: + row['summary'] for _, row in batch.iterrows()",
+    "2-basliktanozete":"Verilen başlıktan bir haber metni özeti oluştur. İşte başlık: + row['header'] for _, row in batch.iterrows()]"
+}
+
+

@@ -1,0 +1,5 @@
+{
+    "threeshot": "Özet: Mustafa Sarıgül, Büyükşehir Yasası'yla Şişli'den alınan mahallelerin geri alınması için Anayasa Mahkemesi'ne başvuracak. Başlık: sarıgül anayasa_mahkemesi ne gidiyor\nÖzet: Pegasus Havayolları, 12 milyar dolarlık yatırımla, Türk sivil havacılık tarihindeki en büyük sipariş olan 100 Airbus A320neo ailesi uçağını satın aldı. Başlık: pegasus tan 100 uçaklık sipariş\nÖzet: KOBİ'lerin bilançolarının yetersizliği nedeniyle krediye erişimde yaşadıkları zorluklar ve bankaların yüksek karlılığına rağmen reel ekonomiye yeterince kaynak aktarmamaları, Türkiye'nin sanayi üretimini olumsuz etkiliyor. Başlık: kobi ler bankalardan yana dertli",
+    "1-ozettenbasliga":"threeshot + row['summary'] + 'Başlık:'",
+    "2-basliktanozete":"threeshot + row['header'] + 'Özet:'"
+}
