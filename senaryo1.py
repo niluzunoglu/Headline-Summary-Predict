@@ -41,20 +41,12 @@ def run_model_batch(input_texts):
 
 # Batch İşleme
 def process_batch(batch, batch_size):
-
-
-    threeshot = """
-    Özet: Mustafa Sarıgül, Büyükşehir Yasası'yla Şişli'den alınan mahallelerin geri alınması için Anayasa Mahkemesi'ne başvuracak. Başlık: sarıgül anayasa_mahkemesi ne gidiyor
-    Özet: Pegasus Havayolları, 12 milyar dolarlık yatırımla, Türk sivil havacılık tarihindeki en büyük sipariş olan 100 Airbus A320neo ailesi uçağını satın aldı. Başlık: pegasus tan 100 uçaklık sipariş
-    Özet: KOBİ'lerin bilançolarının yetersizliği nedeniyle krediye erişimde yaşadıkları zorluklar ve bankaların yüksek karlılığına rağmen reel ekonomiye yeterince kaynak aktarmamaları, Türkiye'nin sanayi üretimini olumsuz etkiliyor. Başlık: kobi ler bankalardan yana dertli
-    """
-
+    
     if TASK_TYPE == "ozettenbasliga":
-      prompt = threeshot + "Özet:"
-      prompts = [prompt + row["summary"] + "Başlık:" for _, row in batch.iterrows()]
+      prompts = ["Verilen özet metnine göre anlamlı bir başlık oluştur. İşte özet: "+ row['summary'] for _, row in batch.iterrows()]
 
     elif TASK_TYPE == "basliktanozete":
-      prompts = [threeshot + "Başlık:" + row["header"] + "Özet:" for _, row in batch.iterrows()]
+      prompts = ["Verilen başlıktan bir haber metni özeti oluştur. İşte başlık:" + row['header'] for _, row in batch.iterrows()]
 
     start_time = time.time()
     generated_contents = run_model_batch(prompts)
